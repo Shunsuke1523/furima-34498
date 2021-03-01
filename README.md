@@ -51,16 +51,17 @@
 
 ### Association
 
-- belongs_to :user
-- belongs_to :product_listing
 - belongs_to :shipping_address
 
 ## shipping_addresses テーブル
 
-| Column                 | Type       | Options                        |
-| ---------------------- | ---------- | ------------------------------ |
-| product_listing        | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| user            | references | null: false, foreign_key: true |
+| product_listing | references | null: false, foreign_key: true |
 
 ## Association
 
-- has_one :purchase_management
+- belongs_to :user
+- belongs_to :product_listing
+- has_one    :purchase_management
