@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :product_listings
-- has_many :product_purchases
+- has_many :purchase_managements
 
 ## product_listings テーブル
 
@@ -34,7 +34,7 @@
 
 ### Association
 
-- has_many   :product_purchases
+- has_one   :purchase_management
 - belongs_to :user
 
 ## purchase_managements
