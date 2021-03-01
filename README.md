@@ -52,6 +52,8 @@
 ### Association
 
 - belongs_to :shipping_address
+- belongs_to :product_listing
+- belongs_to :user
 
 ## shipping_addresses テーブル
 
