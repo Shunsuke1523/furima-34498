@@ -34,10 +34,10 @@
 
 ### Association
 
-- has_one   :purchase_management
+- has_one    :purchase_managements
 - belongs_to :user
 
-## purchase_managements
+## shipping_addresses テーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -51,11 +51,9 @@
 
 ### Association
 
-- belongs_to :shipping_address
-- belongs_to :product_listing
-- belongs_to :user
+- belongs_to :purchase_management
 
-## shipping_addresses テーブル
+## purchase_managements テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
@@ -66,4 +64,4 @@
 
 - belongs_to :user
 - belongs_to :product_listing
-- has_one    :purchase_management
+- has_one    :shipping_address
