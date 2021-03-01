@@ -34,20 +34,20 @@
 
 ### Association
 
-- has_one    :purchase_managements
+- has_one    :purchase_management
 - belongs_to :user
 
 ## shipping_addresses テーブル
 
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| postal_code        | string     | null: false                    |
-| municipality       | string     | null: false                    |
-| address            | string     | null: false                    |
-| building_name      | string     |                                |
-| phone_number       | string     | null: false                    |
-| delivery_area_id   | integer    | null: false                    |
-| shipping_address   | references | null: false, foreign_key: true |
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| postal_code          | string     | null: false                    |
+| municipality         | string     | null: false                    |
+| address              | string     | null: false                    |
+| building_name        | string     |                                |
+| phone_number         | string     | null: false                    |
+| delivery_area_id     | integer    | null: false                    |
+| purchase_managements | references | null: false, foreign_key: true |
 
 ### Association
 

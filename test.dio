@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-03-01T06:29:52.922Z" agent="5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="nazTfI83rbmLZMihYY6C" version="14.2.4" type="embed">
+<mxfile host="65bd71144e" modified="2021-03-01T06:40:06.435Z" agent="5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="W7IVYaJ-wmRTcBli9zmF" version="14.2.4" type="embed">
     <diagram id="S1UiE45yGpBufWka4Kf7" name="ページ1">
-        <mxGraphModel dx="1168" dy="914" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1352" dy="914" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -26,7 +26,7 @@
                 <mxCell id="6" value="shipping_addressesテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="450" y="405" width="240" height="270" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="postal_code　(string型、NOT NULL)&#10;&#10;municipality　(string型、NOT NULL)&#10;&#10;address　(string型、NOT NULL)&#10;&#10;building_name　(string型)&#10;&#10;phone_number　(string型、NOT NULL)&#10;&#10;delivery_area_id　(integer型、NOT NULL)&#10;&#10;shipping_address　(references型)&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="6" vertex="1">
+                <mxCell id="9" value="postal_code　(string型、NOT NULL)&#10;&#10;municipality　(string型、NOT NULL)&#10;&#10;address　(string型、NOT NULL)&#10;&#10;building_name　(string型)&#10;&#10;phone_number　(string型、NOT NULL)&#10;&#10;delivery_area_id　(integer型、NOT NULL)&#10;&#10;purchase_managements　(references型)&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="6" vertex="1">
                     <mxGeometry y="26" width="240" height="244" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="product_listingsテーブル" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
