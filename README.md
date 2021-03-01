@@ -17,7 +17,6 @@
 
 - has_many :product_listings
 - has_many :product_purchases
-- has_many :shipping_addresses
 
 ## product_listings テーブル
 
@@ -25,17 +24,16 @@
 | ---------------------- | ---------- | ------------------------------ |
 | product_name           | string     | null: false                    |
 | product_description    | text       | null: false                    |
-| category_id            | string     | null: false                    | 
-| product_status_id      | string     | null: false                    |
-| delivery_fee_burden_id | string     | null: false                    |
-| delivery_area_id       | string     | null: false                    |
-| delivery_days_id       | date       | null: false                    |
+| category_id            | integer    | null: false                    | 
+| product_status_id      | integer    | null: false                    |
+| delivery_fee_burden_id | integer    | null: false                    |
+| delivery_area_id       | integer    | null: false                    |
+| delivery_days_id       | integer    | null: false                    |
 | price                  | integer    | null: false                    |
 | user                   | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many   :shipping_addresses
 - has_many   :product_purchases
 - belongs_to :user
 
@@ -44,36 +42,25 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | postal_code        | string     | null: false                    |
-| prefectures_id     | string     | null: false                    |
+| prefectures_id     | integer    | null: false                    |
 | municipality       | string     | null: false                    |
 | address            | string     | null: false                    |
 | building_name      | string     |                                |
 | phone_number       | string     | null: false                    |
-| user               | references | null: false, foreign_key: true |
-| product_listing    | references | null: false, foreign_key: true |
-| product_name       | references | null: false, foreign_key: true |
-| price              | references | null: false, foreign_key: true |
 | shipping_addresses | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :product_listing
-- belongs_to :shipping_addresses
+- belongs_to :shipping_address
 
 ## shipping_addresses テーブル
 
 | Column                 | Type       | Options                        |
 | ---------------------- | ---------- | ------------------------------ |
-| delivery_fee_burden_id | references | null: false, foreign_key: true |
-| delivery_area_id       | references | null: false, foreign_key: true |
-| delivery_days_id       | references | null: false, foreign_key: true |
-| user                   | references | null: false, foreign_key: true |
 | product_listing        | references | null: false, foreign_key: true |
-| purchase_managements   | references | null: false, foreign_key: true |
 
 ## Association
 
-- belongs_to :user
-- belongs_to :product_listing
-- belongs_to :purchase_managements
+- has_one :purchase_management
