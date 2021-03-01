@@ -46,7 +46,7 @@
 | address            | string     | null: false                    |
 | building_name      | string     |                                |
 | phone_number       | string     | null: false                    |
-| delivery_area_id   | references | null: false, foreign_key: true |
+| delivery_area_id   | integer    | null: false                    |
 | shipping_address   | references | null: false, foreign_key: true |
 
 ### Association
