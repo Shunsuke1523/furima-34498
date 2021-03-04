@@ -13,11 +13,17 @@ class User < ApplicationRecord
     validates :birthday
   end
 
-  validates :password,              format:   { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/ }
-  validates :first_name,            format:   { with: /\A[ぁ-んァ-ン一-龥]/ }
-  validates :last_name,             format:   { with: /\A[ぁ-んァ-ン一-龥]/ }
-  validates :first_name_kana,       format:   { with: /\A[ァ-ヶー－]+\z/ }
-  validates :last_name_kana,        format:   { with: /\A[ァ-ヶー－]+\z/ }
+  validates :password, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/ }
+
+  with_options format: { with: /\A[ぁ-んァ-ン一-龥]/ } do
+    validates :first_name
+    validates :last_name
+  end
+
+  with_options format: { with: /\A[ァ-ヶー－]+\z/ } do
+    validates :first_name_kana
+    validates :last_name_kana
+  end
 
   has_many  :product_listings
   has_many  :purchase_managements
