@@ -49,13 +49,13 @@ RSpec.describe User, type: :model do
       @user.password = 'aaaaaa'
       @user.password_confirmation = 'aaaaaa'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Password is invalid")
+      expect(@user.errors.full_messages).to include('Password is invalid')
     end
     it 'passwordは、半角での入力が必須である' do
       @user.password = 'ｂ１ｂ１ｂ１'
       @user.password_confirmation = 'ｂ１ｂ１ｂ１'
       @user.valid?
-      expect(@user.errors.full_messages).to include("Password is invalid")
+      expect(@user.errors.full_messages).to include('Password is invalid')
     end
     it 'passwordは、確認用を含めて2回入力すること' do
       @user.password_confirmation = ''
@@ -73,7 +73,7 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Last name can't be blank")
     end
-    it "ユーザー本名は、first_nameが必須である" do
+    it 'ユーザー本名は、first_nameが必須である' do
       @user.first_name = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("First name can't be blank")
