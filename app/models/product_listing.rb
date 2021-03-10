@@ -12,11 +12,13 @@ class ProductListing < ApplicationRecord
 
   validates :price, format: { with: /\A[0-9]+\z/ }
 
-  validates :category_id,            numericality: { other_than: 1 }
-  validates :product_status_id,      numericality: { other_than: 1 }
-  validates :delivery_fee_burden_id, numericality: { other_than: 1 }
-  validates :delivery_area_id,       numericality: { other_than: 1 }
-  validates :delivery_days_id,       numericality: { other_than: 1 }
+  with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :product_status_id
+    validates :delivery_fee_burden_id
+    validates :delivery_area_id
+    validates :delivery_days_id
+  end
 
   belongs_to :category
   belongs_to :product_status
