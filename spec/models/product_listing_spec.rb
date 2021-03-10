@@ -78,6 +78,16 @@ RSpec.describe ProductListing, type: :model do
         @product_listing.valid?
         expect(@product_listing.errors.full_messages).to include('Price is not a number')
       end
+      it '価格は半角英数字混合では登録できない' do
+        @product_listing.price = '1a1a1a1'
+        @product_listing.valid?
+        expect(@product_listing.errors.full_messages).to include('Price is not a number')
+      end
+      it '価格は全角文字では登録できない' do
+        @product_listing.price = 'こんにちは'
+        @product_listing.valid?
+        expect(@product_listing.errors.full_messages).to include('Price is not a number')
+      end
     end
   end
 end
