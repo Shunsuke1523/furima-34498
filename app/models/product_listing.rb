@@ -25,6 +25,7 @@ class ProductListing < ApplicationRecord
   belongs_to :delivery_fee_burden
   belongs_to :delivery_area
   belongs_to :delivery_days
+  has_one    :purchase_management
   belongs_to :user
   has_one_attached :image
 end

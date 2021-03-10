@@ -2,6 +2,7 @@ class ProductListingsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
+    @product_listings = ProductListing.all
   end
 
   def new
