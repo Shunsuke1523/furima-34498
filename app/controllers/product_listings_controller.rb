@@ -1,7 +1,7 @@
 class ProductListingsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :move_to_index, only: [:edit, :update]
-  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     @product_listings = ProductListing.all.order(created_at: 'DESC')
@@ -31,6 +31,14 @@ class ProductListingsController < ApplicationController
       redirect_to product_listing_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @product_listing.destroy
+      redirect_to root_path
+    else
+      render :show
     end
   end
 
