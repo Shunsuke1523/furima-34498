@@ -2,7 +2,7 @@ class ProductListingsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @product_listings = ProductListing.all.order(created_at: "DESC")
+    @product_listings = ProductListing.all.order(created_at: 'DESC')
   end
 
   def new
@@ -16,6 +16,10 @@ class ProductListingsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @product_listing = ProductListing.find(params[:id])
   end
 
   private
