@@ -59,7 +59,7 @@ RSpec.describe ProductListing, type: :model do
         expect(@product_listing.errors.full_messages).to include("Price can't be blank")
       end
       it '販売価格は、¥300~9,999,999の間のみ保存可能である' do
-        @product_listing.price = 10000000
+        @product_listing.price = 10_000_000
         @product_listing.valid?
         expect(@product_listing.errors.full_messages).to include('Price must be less than 10000000')
       end
