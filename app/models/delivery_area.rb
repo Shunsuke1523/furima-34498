@@ -20,4 +20,5 @@ class DeliveryArea < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :product_listings
+  has_many :shipping_addresses
 end
