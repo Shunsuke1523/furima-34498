@@ -4,6 +4,8 @@ class PurchaseAddress
                 :delivery_area_id, :token
 
   with_options presence: true do
+    validates :user_id
+    validates :product_listing_id
     validates :postal_code
     validates :municipality
     validates :address

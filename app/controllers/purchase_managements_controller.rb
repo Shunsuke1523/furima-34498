@@ -1,15 +1,13 @@
 class PurchaseManagementsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
   before_action :move_to_index, only: [:index, :create]
+  before_action :set_product, only: [:index, :create, :sale_product]
   before_action :sale_product, only: [:index, :create]
-
   def index
     @purchase_address = PurchaseAddress.new
-    @product_listing = ProductListing.find(params[:product_listing_id])
   end
 
   def create
-    @product_listing = ProductListing.find(params[:product_listing_id])
     @purchase_address = PurchaseAddress.new(purchase_management_params)
     if @purchase_address.valid?
       pay_item
@@ -41,8 +39,11 @@ class PurchaseManagementsController < ApplicationController
     redirect_to root_path unless current_user.id != ProductListing.find(params[:product_listing_id]).user.id
   end
 
-  def sale_product
+  def set_product
     @product_listing = ProductListing.find(params[:product_listing_id])
-    redirect_to root_path if user_signed_in? && !@product_listing.purchase_management.nil?
+  end
+
+  def sale_product
+    redirect_to root_path unless @product_listing.purchase_management.nil?
   end
 end
