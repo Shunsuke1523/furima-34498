@@ -2,6 +2,7 @@ class ProductListingsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update, :destroy]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :sale_product, only: [:edit, :update, :destroy]
 
   def index
     @product_listings = ProductListing.all.order(created_at: 'DESC')
@@ -55,5 +56,9 @@ class ProductListingsController < ApplicationController
 
   def set_product
     @product_listing = ProductListing.find(params[:id])
+  end
+
+  def sale_product
+    redirect_to root_path if current_user.id != @product_listing.user.id || !@product_listing.purchase_management.nil?
   end
 end

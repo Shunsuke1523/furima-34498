@@ -8,11 +8,11 @@
     </h2>
     <div class="item-img-content">
       <%= image_tag @product_listing.image ,class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold outを表示しましょう %>
-      <div class="sold-out">
-        <span>Sold Out!!</span>
-      </div>
-      <%# //商品が売れている場合は、sold outを表示しましょう %>
+      <% if @product_listing.purchase_management != nil %>
+        <div class="sold-out">
+          <span>Sold Out!!</span>
+        </div>
+      <% end %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -23,13 +23,13 @@
       </span>
     </div>
 
-    <% if user_signed_in? %>
+    <% if user_signed_in? && @product_listing.purchase_management == nil %>
       <% if current_user.id == @product_listing.user_id %>
         <%= link_to "商品の編集", edit_product_listing_path(@product_listing), method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
         <%= link_to "削除", product_listing_path(@product_listing), method: :delete, class:"item-destroy" %>
       <% else %>
-        <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+        <%= link_to "購入画面に進む", product_listing_purchase_managements_path(@product_listing) ,class:"item-red-btn"%>
       <% end %>
     <% end %>
 
