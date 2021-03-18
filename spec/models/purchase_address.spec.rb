@@ -21,7 +21,7 @@ RSpec.describe PurchaseAddress, type: :model do
     end
     context '商品購入が上手く行かない時' do
       it '電話番号は11桁以内の数値のみ保存可能なこと' do
-        @purchase_address.phone_number = 505_123_456_789
+        @purchase_address.phone_number = '505123456789'
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
@@ -61,7 +61,7 @@ RSpec.describe PurchaseAddress, type: :model do
         expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
       end
       it '電話番号は英数混合では登録できないこと' do
-        @purchase_address.phone_number = '50_abc_345_678'
+        @purchase_address.phone_number = '50abc345678'
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
       end
